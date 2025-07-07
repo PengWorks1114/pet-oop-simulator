@@ -2,22 +2,20 @@ package com.example.pets;
 
 public class Main {
     public static void main(String[] args) {
-        Talkable[] pets = {
-                new Dog("小黑"),
-                new Cat("小花"),
-                new Parrot("小綠")
-        };
+        // 建立寵物
+        Pet dog = new Dog("小黑");
+        Pet cat = new Cat("小花");
+        Pet parrot = new Parrot("小綠");
 
-        for (Talkable pet : pets) {
-            // 多型：介面統一呼叫不同類別的 speak 方法
-            pet.speak();
+        // 建立飼主
+        Owner owner = new Owner("阿志");
 
-            // 若物件同時也是 Pet，則呼叫 introduce 方法
-            if (pet instanceof Pet) {
-                ((Pet) pet).introduce();
-            }
+        // 新增寵物到飼主名下
+        owner.addPet(dog);
+        owner.addPet(cat);
+        owner.addPet(parrot);
 
-            System.out.println("-----------");
-        }
+        // 顯示所有寵物資訊
+        owner.showPets();
     }
 }
